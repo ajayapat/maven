@@ -3,7 +3,7 @@ pipeline
   agent any
   stages
   {
-    stage('ContiniousDownload')
+    stage('ContiniousDownload_Master')
     {
       steps
       {
@@ -19,21 +19,21 @@ pipeline
         
       }
     }
-    stage('ContiniousBuild')
+    stage('ContiniousBuild_Master')
     {
       steps
       {
          sh 'mvn package'
       }
     }
-    stage('ContiniousDeployment')
+    stage('ContiniousDeployment_Master')
     {
       steps
       {
          deploy adapters: [tomcat9(credentialsId: 'e872fcda-b798-41a4-b2ea-ff2f7e9574b0', path: '', url: 'http://10.0.0.113:8080')], contextPath: 'testapp', war: '**/*.war'
       }
     }
-    stage('ContiniousTesting')
+    stage('ContiniousTesting_Master')
     {
       steps
       {
@@ -42,7 +42,7 @@ pipeline
          
       }
     }
-     stage('ContiniousDelivery')
+     stage('ContiniousDelivery_Master')
     {
       steps
       {
