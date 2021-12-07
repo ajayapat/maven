@@ -46,8 +46,8 @@ pipeline
     {
       steps
       {
-          input message: 'Need Approval from DM!', submitter: 'srinivas'
-         deploy adapters: [tomcat9(credentialsId: 'e872fcda-b798-41a4-b2ea-ff2f7e9574b0', path: '', url: 'http://10.0.0.119:8080')], contextPath: 'prodapp', war: '**/*.war'
+       
+     deploy adapters: [tomcat9(credentialsId: 'e872fcda-b798-41a4-b2ea-ff2f7e9574b0', path: '', url: 'http://10.0.0.119:8080')], contextPath: 'prodapp', war: '**/*.war'
          
       }
     }
